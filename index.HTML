@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheram Ali | Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: white;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: #111;
+    position: sticky;
+    top: 0;
+}
+nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+.hero h1 {
+    font-size: 40px;
+}
+
+/* Typing */
+#typing {
+    color: #00ffcc;
+    font-weight: bold;
+}
+
+/* Section */
+.section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Card */
+.card {
+    background: #1a1a1a;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Skills */
+.skills span {
+    background: #00ffcc;
+    color: black;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Image */
+.project-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Button */
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #00ffcc;
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <h2>Sheram Ali</h2>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <h1>Hi, I'm Sheram Ali 👋</h1>
+    <p>I am a <span id="typing"></span></p>
+    <a href="cv.pdf" class="btn">Download CV</a>
+</div>
+
+<div class="section" id="about">
+    <div class="card">
+        <h2>About Me</h2>
+        <p>I am a student passionate about programming, problem solving and building real-world systems using OOP.</p>
+    </div>
+</div>
+
+<div class="section" id="skills">
+    <div class="card">
+        <h2>Skills</h2>
+        <div class="skills">
+            <span>C++</span>
+            <span>OOP</span>
+            <span>Problem Solving</span>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="projects">
+
+    <div class="card">
+        <h2>🏥 Hospital Management System</h2>
+        <p>OOP system using inheritance & polymorphism.</p>
+        <img src="hospital.png" class="project-img">
+        <a href="#" class="btn">View Code</a>
+    </div>
+
+    <div class="card">
+        <h2>🚗 Smart Transportation System</h2>
+        <p>Vehicle simulation using OOP concepts.</p>
+        <img src="transport.png" class="project-img">
+        <a href="#" class="btn">View Code</a>
+    </div>
+
+</div>
+
+<div class="section" id="contact">
+    <div class="card">
+        <h2>Contact</h2>
+        <p>Email: sheramsheramali@gmail.com</p>
+        <a href="mailto:sheramsheramali@gmail.com" class="btn">Send Email</a>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Sheram Ali | All Rights Reserved</p>
+</footer>
+
+<script>
+const words = ["Student", "Programmer", "OOP Learner"];
+let i = 0;
+let j = 0;
+let currentWord = "";
+let isDeleting = false;
+
+function type() {
+    currentWord = words[i];
+    if (isDeleting) {
+        document.getElementById("typing").textContent = currentWord.substring(0, j--);
+    } else {
+        document.getElementById("typing").textContent = currentWord.substring(0, j++);
+    }
+
+    if (!isDeleting && j === currentWord.length) {
+        isDeleting = true;
+        setTimeout(type, 1000);
+    } else if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+        setTimeout(type, 200);
+    } else {
+        setTimeout(type, isDeleting ? 50 : 100);
+    }
+}
+type();
+</script>
+
+</body>
+</html>
