@@ -1,4 +1,4 @@
-# AUTOMATED TELLER MACHINE 
+# Easy Bank ATM
 ## Semester project 
 # Language 
 Python 
